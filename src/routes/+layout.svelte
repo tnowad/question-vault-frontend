@@ -1,4 +1,6 @@
 <script>
+  import { navigating } from '$app/stores';
+  import PreloadingIndicator from '$lib/components/PreloadingIndicator.svelte';
   import '../app.css';
 </script>
 
@@ -6,6 +8,10 @@
   <title>Question Vault</title>
 </svelte:head>
 
-<noscript class=""> </noscript>
+<main>
+  {#if $navigating}
+    <PreloadingIndicator />
+  {/if}
 
-<slot />
+  <slot />
+</main>
