@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { navigating } from '$app/stores';
   import PreloadingIndicator from '$lib/components/common/preloading-indicator.svelte';
   import '../app.css';
@@ -15,6 +15,4 @@
   <PreloadingIndicator />
 {/if}
 
-<main>
-  <slot />
-</main>
+<slot />
