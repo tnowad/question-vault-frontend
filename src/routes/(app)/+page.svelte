@@ -1,5 +1,5 @@
 <!-- Homepage -->
-<div>
+<div class="h-[100vh]">
   <div>Featured Questions</div>
   <div>Recent Questions</div>
   <div>Top Contributors</div>
