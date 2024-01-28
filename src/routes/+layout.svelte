@@ -1,6 +1,6 @@
 <script>
   import { navigating } from '$app/stores';
-  import PreloadingIndicator from '$lib/components/common/PreloadingIndicator.svelte';
+  import PreloadingIndicator from '$lib/components/common/preloading-indicator.svelte';
   import '../app.css';
 </script>
 

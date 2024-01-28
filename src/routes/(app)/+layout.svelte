@@ -1,7 +1,7 @@
 <script>
-  import Footer from '$lib/components/layout/Footer.svelte';
-  import LeftSidebar from '$lib/components/layout/LeftSidebar.svelte';
-  import Topbar from '$lib/components/layout/Topbar.svelte';
+  import Footer from '$lib/components/layout/footer.svelte';
+  import LeftSidebar from '$lib/components/layout/left-sidebar.svelte';
+  import Topbar from '$lib/components/layout/topbar.svelte';
 </script>
 
 <Topbar />
