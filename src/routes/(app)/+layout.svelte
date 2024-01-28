@@ -6,11 +6,16 @@
 
 <Topbar />
 
-<main class="container mx-auto">
-  <LeftSidebar />
-
-  <div>
-    <slot />
+<main>
+  <div class="container mx-auto grid grid-cols-12">
+    <div class="col-span-3">
+      <div class="top-16 sticky h-auto">
+        <LeftSidebar />
+      </div>
+    </div>
+    <div class="col-span-9">
+      <slot />
+    </div>
   </div>
 </main>
 
