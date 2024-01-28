@@ -7,4 +7,3 @@
   <div>Site Statistics (e.g., total questions, answers)</div>
   <div>User Testimonials</div>
 </div>
-
