@@ -14,7 +14,7 @@
           <LeftSidebar />
         </div>
       </div>
-      <div class="col-auto">
+      <div class="col-span-12 md:col-span-8 lg:col-span-9 xl:col-span-10">
         <slot />
       </div>
     </div>
