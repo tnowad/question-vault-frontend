@@ -8,7 +8,7 @@
   <Topbar />
 
   <main class="flex-1">
-    <div class="container mx-auto grid grid-cols-12">
+    <div class="container grid grid-cols-12">
       <div class="hidden md:block md:col-span-4 lg:col-span-3 xl:col-span-2">
         <div class="top-16 sticky h-auto">
           <LeftSidebar />

@@ -3,7 +3,7 @@
 </script>
 
 <footer class="bg-white dark:bg-gray-900 border-t border-gray-200">
-  <div class="mx-auto px-4 py-6 lg:py-8 container">
+  <div class="py-6 lg:py-8 container">
     <div class="md:flex md:justify-between">
       <div class="mb-6 md:mb-0">
         <a href="/" class="flex items-center">

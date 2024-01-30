@@ -4,7 +4,7 @@
 </script>
 
 <header class="sticky top-0 h-16 border-b flex border-gray-200 bg-white dark:bg-gray-900">
-  <div class="container mx-auto flex justify-between items-center">
+  <div class="container flex justify-between items-center">
     <a href="/" aria-label="Go to home" class="flex items-center">
       <img src="/favicon.png" alt="Logo" class="w-8 h-8" />
       <span class="ml-2 text-lg font-bold">Question Vault</span>
