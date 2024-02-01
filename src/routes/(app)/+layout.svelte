@@ -4,13 +4,13 @@
   import Topbar from '$lib/components/layout/topbar.svelte';
 </script>
 
-<div class="flex flex-col min-h-screen">
+<div class="flex min-h-screen flex-col">
   <Topbar />
 
   <main class="flex-1">
     <div class="container grid grid-cols-12">
-      <div class="hidden md:block md:col-span-4 lg:col-span-3 xl:col-span-2">
-        <div class="top-16 sticky h-auto">
+      <div class="hidden md:col-span-4 md:block lg:col-span-3 xl:col-span-2">
+        <div class="sticky top-16 h-auto">
           <LeftSidebar />
         </div>
       </div>
