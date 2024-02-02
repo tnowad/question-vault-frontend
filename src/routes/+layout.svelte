@@ -9,6 +9,15 @@
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="icon" type="image/png" href="/favicon.png" />
+
+  <script>
+    const savedTheme = localStorage.getItem('theme');
+    const isThemeDark = savedTheme === 'dark';
+    const prefersDarkMode =
+      !savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const enableDarkMode = isThemeDark || prefersDarkMode;
+    document.documentElement.classList.toggle('dark', enableDarkMode);
+  </script>
 </svelte:head>
 
 {#if $navigating}
