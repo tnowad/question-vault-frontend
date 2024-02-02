@@ -1,6 +1,7 @@
 <script lang="ts">
   import { Bell, Icon, Inbox, UserCircle } from 'svelte-hero-icons';
   import SearchInput from '../features/search-input.svelte';
+  import ThemeSwitcher from '../features/theme-switcher';
 
   let isAuthenticated = false;
 </script>
@@ -37,6 +38,8 @@
           >Sign Up</a
         >
       {/if}
+
+      <ThemeSwitcher />
     </div>
   </div>
 </header>

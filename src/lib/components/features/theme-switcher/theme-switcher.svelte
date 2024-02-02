@@ -1,10 +1,13 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import { updateTheme } from './dark-mode';
   import { Icon, Moon, Sun } from 'svelte-hero-icons';
+
   let isDarkMode = false;
 
   function handleDarkModeToggle() {
     isDarkMode = !isDarkMode;
+    updateTheme(isDarkMode ? 'dark' : 'light');
   }
 
   onMount(() => {
