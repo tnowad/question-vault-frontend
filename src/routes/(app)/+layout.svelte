@@ -10,7 +10,7 @@
   <main class="flex-1">
     <div class="container grid grid-cols-12">
       <div class="hidden md:col-span-4 md:block lg:col-span-3 xl:col-span-2">
-        <div class="sticky top-16 h-auto">
+        <div class="sticky top-16 -z-10 h-auto">
           <LeftSidebar />
         </div>
       </div>
