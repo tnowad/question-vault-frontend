@@ -6,9 +6,6 @@
   <Topbar />
 
   <main class="flex-1">
-    <div class="container">
-      <slot />
-      <div>Password Reset/Recovery Options</div>
-    </div>
+    <slot />
   </main>
 </div>
