@@ -40,11 +40,21 @@
       }
     }, 0);
   }
+
+  let debounceTimer: number;
+
   async function handleSearchInputChange(event: Event) {
     const target = event.target as HTMLInputElement;
     searchInputValue = target.value;
+    if (!searchInputValue) {
+      return;
+    }
 
-    searchResult = await fetchSearchResults(searchInputValue);
+    clearTimeout(debounceTimer);
+
+    debounceTimer = setTimeout(async () => {
+      searchResult = await fetchSearchResults(searchInputValue);
+    }, 300);
   }
 
   function handleClearSearchInput() {
@@ -126,15 +136,14 @@
           </ul>
         </div>
       </form>
+      <button
+        on:click={() => {
+          showSearchForm = false;
+        }}
+        aria-label="Close Search Form"
+      >
+        close
+      </button>
     </div>
-
-    <button
-      on:click={() => {
-        showSearchForm = false;
-      }}
-      aria-label="Close Search Form"
-    >
-      close
-    </button>
   </div>
 {/if}
