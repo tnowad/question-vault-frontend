@@ -2,10 +2,10 @@
   import { Checkbox, A, Button, Card } from 'flowbite-svelte';
   export let title = 'Sign in to platform';
   export let site = {
-    name: 'Flowbite',
-    img: '/images/flowbite-svelte-icon-logo.svg',
+    name: 'Question Vault',
+    img: '/favicon.png',
     link: '/',
-    imgAlt: 'FlowBite Logo',
+    imgAlt: 'Question Vault Logo',
   };
   export let rememberMe = true;
   export let lostPassword = true;
