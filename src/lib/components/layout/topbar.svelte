@@ -14,6 +14,7 @@
     Avatar,
     Indicator,
     Modal,
+    DarkMode,
   } from 'flowbite-svelte';
   import { Icon, MagnifyingGlass, EyeSlash, BellAlert } from 'svelte-hero-icons';
 
@@ -52,6 +53,7 @@
       </div>
       <Input id="search-navbar" class="ps-10" placeholder="Search..." />
     </div>
+    <DarkMode />
 
     {#if isAuthenticated}
       <Button
