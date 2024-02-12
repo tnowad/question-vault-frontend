@@ -2,6 +2,8 @@
   import { Label, Input } from 'flowbite-svelte';
   import SignIn from '$lib/components/features/authentication/sign-in.svelte';
 
+  import authService from '$lib/services/auth.service';
+  import { StatusCodes } from 'http-status-codes';
   let title = 'Sign in to platform';
   let site = {
     name: 'Question Vault',
@@ -17,15 +19,32 @@
   let registerLink = 'sign-up';
   let createAccountTitle = 'Create account';
 
-  const onSubmit = (e: Event) => {
+  const onSubmit = async (e: Event) => {
     const formData = new FormData(e.target as HTMLFormElement);
 
-    const data: Record<string, string | File> = {};
+    const data: Record<string, string> = {};
     for (const field of formData.entries()) {
       const [key, value] = field;
-      data[key] = value;
+      data[key] = value as string;
     }
-    console.log(data);
+
+    try {
+      const response = await authService.signIn({
+        email: data['email'],
+        password: data['password'],
+      });
+
+      switch (response.statusCode) {
+        case StatusCodes.ACCEPTED:
+          console.log('OK', response);
+          break;
+        case StatusCodes.BAD_REQUEST:
+          console.log('Failed', response);
+          break;
+      }
+    } catch (error) {
+      console.log('Error', error);
+    }
   };
 </script>
 
