@@ -36,14 +36,17 @@
 
       switch (response.statusCode) {
         case StatusCodes.ACCEPTED:
-          console.log('OK', response);
+          console.log('SignIn Successful!', response);
           break;
-        case StatusCodes.BAD_REQUEST:
-          console.log('Failed', response);
+        case StatusCodes.UNPROCESSABLE_ENTITY:
+          console.log('Validation Failed!', response);
+          break;
+        case StatusCodes.UNAUTHORIZED:
+          console.log('Authentication Failed!', response);
           break;
       }
     } catch (error) {
-      console.log('Error', error);
+      console.log('Something went wrong!', error);
     }
   };
 </script>

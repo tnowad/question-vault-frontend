@@ -28,13 +28,19 @@ type SignInSuccessful = {
 };
 
 type SignInFailed = {
-  statusCode: StatusCodes.BAD_REQUEST;
-  message: string | string[];
+  statusCode: StatusCodes.UNAUTHORIZED;
+  message: string;
+  error: string;
+};
+
+type SignInValidationFailed = {
+  statusCode: StatusCodes.UNPROCESSABLE_ENTITY;
+  message: string[];
   error: string;
 };
 
 type SignInResponse = Omit<Response, 'json'> & {
-  json: () => Promise<SignInSuccessful | SignInFailed>;
+  json: () => Promise<SignInSuccessful | SignInFailed | SignInValidationFailed>;
 };
 
 const signIn = async (params: SignInBody) => {
