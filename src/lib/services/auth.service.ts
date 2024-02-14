@@ -6,7 +6,7 @@ type SignInBody = {
 };
 
 type SignInSuccessful = {
-  statusCode: StatusCodes.ACCEPTED;
+  statusCode: StatusCodes.OK;
   data: {
     user: {
       id: number;
@@ -45,7 +45,7 @@ type SignInResponse = Omit<Response, 'json'> & {
 
 const signIn = async (params: SignInBody) => {
   try {
-    const url = new URL('/auth/email/sign-in', 'http://localhost:3000');
+    const url = new URL('/auth/email/sign-in');
     const response = (await fetch(url, {
       method: 'POST',
       body: JSON.stringify(params),

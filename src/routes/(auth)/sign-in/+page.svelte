@@ -35,7 +35,7 @@
       });
 
       switch (response.statusCode) {
-        case StatusCodes.ACCEPTED:
+        case StatusCodes.OK:
           console.log('SignIn Successful!', response);
           break;
         case StatusCodes.UNPROCESSABLE_ENTITY:
