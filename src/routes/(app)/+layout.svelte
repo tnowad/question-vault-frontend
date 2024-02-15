@@ -4,21 +4,19 @@
   import Topbar from '$lib/components/layout/topbar.svelte';
 </script>
 
-<div class="flex min-h-screen flex-col">
-  <Topbar />
+<Topbar />
 
-  <main class="flex-1">
-    <div class="container grid grid-cols-12">
-      <div class="hidden md:col-span-4 md:block lg:col-span-3 xl:col-span-2">
-        <div class="top-16 -z-10 h-auto">
-          <LeftSidebar />
-        </div>
-      </div>
-      <div class="col-span-12 md:col-span-8 lg:col-span-9 xl:col-span-10">
-        <slot />
+<main class="flex-1">
+  <div class="container mx-auto grid grid-cols-12">
+    <div class="hidden md:col-span-4 md:block lg:col-span-3 xl:col-span-2">
+      <div class="sticky top-[72px] h-auto">
+        <LeftSidebar />
       </div>
     </div>
-  </main>
+    <div class="col-span-12 md:col-span-8 lg:col-span-9 xl:col-span-10">
+      <slot />
+    </div>
+  </div>
+</main>
 
-  <Footer />
-</div>
+<Footer />
