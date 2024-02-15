@@ -24,4 +24,8 @@
   <PreloadingIndicator />
 {/if}
 
-<slot />
+<div
+  class="flex min-h-screen flex-col bg-white text-gray-600 antialiased dark:bg-gray-900 dark:text-gray-400"
+>
+  <slot />
+</div>
