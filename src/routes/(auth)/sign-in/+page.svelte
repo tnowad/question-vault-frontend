@@ -39,12 +39,23 @@
       switch (response.statusCode) {
         case StatusCodes.OK:
           console.log('SignIn Successful!', response);
+          userStore.set(response.data.user);
+
+          // TODO: refactor it
+          localStorage.setItem('accessToken', response.data.token.accessToken);
+          localStorage.setItem('refreshToken', response.data.token.refreshToken);
+
           goto(signInSuccessfulLink);
           break;
         case StatusCodes.UNPROCESSABLE_ENTITY:
           console.log('Validation Failed!', response);
+
+          // TODO: Iterator each message to show error and focus each input
+
           break;
         case StatusCodes.UNAUTHORIZED:
+          // TODO: Show toast
+
           console.log('Authentication Failed!', response);
           break;
       }
