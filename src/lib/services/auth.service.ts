@@ -69,37 +69,55 @@ type SignUpBody = {
 };
 
 type SignUpSuccessful = {
-  user: {
-    id: number;
-  };
-  token: {
-    accessToken: string;
-    refreshToken: string;
+  statusCode: StatusCodes.OK;
+  data: {
+    user: {
+      id: number;
+      uuid: string;
+      fullname: string;
+      phone: string;
+      username: string;
+      birthdate: string;
+      createdAt: string;
+      updatedAt: string;
+      deletedAt: string;
+    };
+    token: {
+      accessToken: string;
+      refreshToken: string;
+    };
   };
   message: string;
 };
 
 type SignUpFailed = {
+  statusCode: StatusCodes.UNAUTHORIZED;
   message: string;
+  error: string;
+};
+
+type SignUpValidationFailed = {
+  statusCode: StatusCodes.UNPROCESSABLE_ENTITY;
+  message: string[];
+  error: string;
+};
+
+type SignUpResponse = Omit<Response, 'json'> & {
+  json: () => Promise<SignUpSuccessful | SignUpFailed | SignUpValidationFailed>;
 };
 
 const signUp = async (params: SignUpBody) => {
   try {
     const url = new URL('/auth/email/sign-up');
-    const response = await fetch(url, {
+    const response = (await fetch(url, {
       method: 'POST',
       body: JSON.stringify(params),
       headers: {
         'Content-Type': 'application/json',
       },
-    });
+    })) as SignUpResponse;
 
-    if (response.status === 200) {
-      return response.json() as Promise<SignUpSuccessful>;
-    } else if (response.status === 400) {
-      return response.json() as Promise<SignUpFailed>;
-    }
-    return Error('Unexpected response from server');
+    return response.json();
   } catch (error) {
     throw new Error('Failed to sign up: ' + (error as Error).message);
   }
