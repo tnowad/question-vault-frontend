@@ -1,9 +1,10 @@
 <script lang="ts">
-  import { Label, Input } from 'flowbite-svelte';
+  import { Label, Input, Toast } from 'flowbite-svelte';
   import SignIn from '$lib/components/features/authentication/sign-in.svelte';
-
+  import { userStore } from '$lib/stores/user.store';
   import authService from '$lib/services/auth.service';
   import { StatusCodes } from 'http-status-codes';
+  import { goto } from '$app/navigation';
   let title = 'Sign in to platform';
   let site = {
     name: 'Question Vault',
@@ -17,6 +18,7 @@
   let lostPasswordLink = 'forgot-password';
   let loginTitle = 'Login to your account';
   let registerLink = 'sign-up';
+  let signInSuccessfulLink = '/';
   let createAccountTitle = 'Create account';
 
   const onSubmit = async (e: Event) => {
@@ -37,6 +39,7 @@
       switch (response.statusCode) {
         case StatusCodes.OK:
           console.log('SignIn Successful!', response);
+          goto(signInSuccessfulLink);
           break;
         case StatusCodes.UNPROCESSABLE_ENTITY:
           console.log('Validation Failed!', response);
